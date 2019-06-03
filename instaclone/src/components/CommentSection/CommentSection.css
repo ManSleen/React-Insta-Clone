@@ -1,3 +1,34 @@
 .comment-section {
-  background-color: yellow;
+  padding: 15px;
+}
+
+.comment {
+  color: black;
+}
+
+.comment div {
+  margin: 5px 0;
+}
+
+.comment h2 {
+  font-size: 1rem;
+  display: inline;
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.likes {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.like-comment-buttons {
+  font-weight: bold;
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+.like-comment-buttons i {
+  margin-bottom: 10px;
+  padding-right: 15px;
 }

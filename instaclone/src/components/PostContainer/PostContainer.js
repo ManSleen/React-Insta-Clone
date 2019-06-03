@@ -3,7 +3,6 @@ import CommentSection from "../CommentSection/CommentSection";
 import "./PostContainer.css";
 
 const PostContainer = props => {
-  console.log(props.post);
   return (
     <div className="post-container">
       <div className="post-username-container">
@@ -13,11 +12,11 @@ const PostContainer = props => {
         <div className="post-username">
           <h1>{props.post.username}</h1>
         </div>
-        <div className="post-image">
-          <img src={props.post.imageUrl} alt=" " />
-        </div>
       </div>
-      <CommentSection key={props.post.id} comments={props.post.comments} />
+      <div className="post-image">
+        <img src={props.post.imageUrl} alt=" " />
+      </div>
+      <CommentSection post={props.post} />
     </div>
   );
 };

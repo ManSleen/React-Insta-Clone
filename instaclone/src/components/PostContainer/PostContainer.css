@@ -1,3 +1,37 @@
 .post-container {
-  background-color: purple;
+  background-color: white;
+  text-align: left;
+  width: 35vw;
+  margin: 20px auto;
+  border: 1px solid rgb(226, 226, 226);
+}
+
+.post-username-container {
+  display: flex;
+  width: 100%;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  height: 70px;
+  align-items: center;
+}
+
+.post-username-icon {
+  padding: 15px;
+}
+
+.post-username-icon img {
+  border-radius: 50%;
+  width: 35px;
+}
+
+.post-username h1 {
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+.post-image img {
+  width: 100%;
+  margin: 0;
 }
