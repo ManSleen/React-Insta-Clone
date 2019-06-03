@@ -1,3 +1,19 @@
 .search-bar {
-  background-color: red;
+  background-color: white;
+  padding: 20px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.search-bar-container {
+  margin: 0 auto;
+  width: 45vw;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-logo img {
+  width: 100px;
+  height: auto;
 }

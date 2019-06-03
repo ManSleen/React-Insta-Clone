@@ -32,3 +32,25 @@
   margin-bottom: 10px;
   padding-right: 15px;
 }
+
+.timestamp {
+  font-size: 0.7rem;
+  color: grey;
+  text-transform: uppercase;
+}
+
+.comment-input {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid lightgray;
+  color: lightgrey;
+}
+
+.comment-input input {
+  height: 40px;
+  width: 100%;
+  background-color: white;
+  border: none;
+
+  color: lightgrey;
+}
