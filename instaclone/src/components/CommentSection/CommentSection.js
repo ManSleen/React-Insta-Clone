@@ -24,7 +24,7 @@ class CommentSection extends React.Component {
       username: localStorage.getItem("username"),
       id: Date.now()
     };
-
+    localStorage.setItem(newComment.id, JSON.stringify(newComment.text));
     this.setState({
       comments: [...this.state.comments, newComment],
       newComment: ""

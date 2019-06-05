@@ -12,13 +12,13 @@ class Post extends React.Component {
 
   addLike = () => {
     if (this.state.isLiked) {
-      let likes = this.state.likes + 1;
+      let likes = this.state.likes - 1;
       this.setState({
         likes,
         isLiked: !this.state.isLiked
       });
     } else {
-      let likes = this.state.likes - 1;
+      let likes = this.state.likes + 1;
       this.setState({
         likes,
         isLiked: !this.state.isLiked
