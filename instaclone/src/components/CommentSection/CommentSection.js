@@ -8,26 +8,27 @@ import "./CommentSection.css";
 class CommentSection extends React.Component {
   state = {
     comments: this.props.post.comments,
-    comment: ""
+    newComment: ""
   };
 
   commentHandler = e => {
     this.setState({
-      comment: e.target.value
+      [e.target.name]: e.target.value
     });
   };
 
   addComment = e => {
+    console.log(this.state.comments);
     e.preventDefault();
     let newComment = {
-      text: this.state.comment,
-      username: "man_sleen"
+      text: this.state.newComment,
+      username: "man_sleen",
+      id: Date.now()
     };
-    const comments = this.state.comments.slice();
-    comments.push(newComment);
+
     this.setState({
-      comments,
-      comment: ""
+      comments: [...this.state.comments, newComment],
+      newComment: ""
     });
   };
 
@@ -39,7 +40,7 @@ class CommentSection extends React.Component {
         })}
         <div className="timestamp">{this.props.post.timestamp}</div>
         <CommentForm
-          comment={this.state.comment}
+          newComment={this.state.newComment}
           commentHandler={this.commentHandler}
           addComment={this.addComment}
         />

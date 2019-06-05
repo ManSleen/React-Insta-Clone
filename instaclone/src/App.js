@@ -9,7 +9,9 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      posts: []
+      posts: [],
+      filtered: [],
+      search: ""
     };
   }
 
@@ -19,13 +21,40 @@ class App extends React.Component {
     });
   }
 
+  searchHandler = e => {
+    e.preventDefault();
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
+  searchFilter = e => {
+    const filteredPosts = this.state.posts.filter(post =>
+      post.username.toLowerCase().includes(e.target.value.toLowerCase())
+    );
+    this.setState({
+      filtered: filteredPosts,
+      [e.target.name]: e.target.value
+    });
+  };
+
   render() {
+    // console.log("this.state.filtered:", this.state.filtered);
+    // console.log("this.state.filtered.length:", this.state.filtered.length);
+    // console.log("this.state.posts", this.state.posts);
     return (
       <div className="App">
-        <SearchBar />
-        {this.state.posts.map(post => {
-          return <PostContainer key={post.id} post={post} />;
-        })}
+        <SearchBar
+          searchHandler={this.searchHandler}
+          searchFilter={this.searchFilter}
+          newSearch={this.state.search}
+          posts={this.state.posts}
+        />
+        <PostContainer
+          posts={this.state.posts}
+          searchFilter={this.searchFilter}
+          filteredPosts={this.state.filtered}
+        />
       </div>
     );
   }
