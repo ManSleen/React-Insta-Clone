@@ -4,7 +4,6 @@ import Post from "./Post";
 import "./PostContainer.css";
 
 const PostContainer = props => {
-  console.log(props);
   return (
     <div>
       {props.filteredPosts.length === 0

@@ -2,6 +2,14 @@ import React from "react";
 import "./SearchBar.css";
 
 class SearchBar extends React.Component {
+  logout = e => {
+    console.log("You ran logout method!", e.target);
+
+    if (localStorage.getItem("username")) {
+      localStorage.removeItem("username");
+      window.location.reload();
+    }
+  };
   render() {
     return (
       <div className="search-bar">
@@ -21,7 +29,9 @@ class SearchBar extends React.Component {
               type="text"
             />
           </div>
-          <div className="search-profile-buttons">Stuff</div>
+          <div className="search-profile-buttons">
+            <button onClick={this.logout}>Logout</button>
+          </div>
         </div>
       </div>
     );

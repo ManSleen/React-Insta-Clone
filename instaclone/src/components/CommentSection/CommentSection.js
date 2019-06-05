@@ -18,11 +18,10 @@ class CommentSection extends React.Component {
   };
 
   addComment = e => {
-    console.log(this.state.comments);
     e.preventDefault();
     let newComment = {
       text: this.state.newComment,
-      username: "man_sleen",
+      username: localStorage.getItem("username"),
       id: Date.now()
     };
 
