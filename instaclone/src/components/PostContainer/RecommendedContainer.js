@@ -9,8 +9,8 @@ const RecommendedContainer = props => {
           alt=""
         />
         <div className="username-realname">
-          <h3>man_sleen</h3>
-          <h4>Mike VanSleen</h4>
+          <h3>{localStorage.getItem("username")}</h3>
+          <h4>Awesome McSauce</h4>
         </div>
       </div>
       <div className="reco-stories">
