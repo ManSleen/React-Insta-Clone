@@ -7,9 +7,20 @@ import "./CommentSection.css";
 
 class CommentSection extends React.Component {
   state = {
-    comments: this.props.post.comments,
+    comments: [],
     newComment: ""
   };
+
+  componentDidMount() {
+    const postArray = JSON.parse(localStorage.getItem("postArray"));
+    this.setState({
+      comments: postArray ? postArray : this.props.post.comments
+    });
+  }
+
+  // componentDidUpdate() {
+  //   localStorage.setItem("postArray", JSON.stringify(this.props.post.comments));
+  // }
 
   commentHandler = e => {
     this.setState({
@@ -24,7 +35,7 @@ class CommentSection extends React.Component {
       username: localStorage.getItem("username"),
       id: Date.now()
     };
-    localStorage.setItem(newComment.id, JSON.stringify(newComment.text));
+
     this.setState({
       comments: [...this.state.comments, newComment],
       newComment: ""
@@ -32,6 +43,7 @@ class CommentSection extends React.Component {
   };
 
   render() {
+    console.log(this.props.post.comments, this.state.comments);
     return (
       <div className="comment-section">
         {this.state.comments.map(comment => {

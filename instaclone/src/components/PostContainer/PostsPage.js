@@ -2,8 +2,10 @@ import React from "react";
 import PostContainer from "../PostContainer/PostContainer";
 import SearchBar from "../SearchBar/SearchBar";
 import dummyData from "../../dummy-data";
+import RecommendedContainer from "./RecommendedContainer";
 
 import "../../App.css";
+import "./PostContainer.css";
 
 class PostsPage extends React.Component {
   constructor() {
@@ -52,11 +54,15 @@ class PostsPage extends React.Component {
           newSearch={this.state.search}
           posts={this.state.posts}
         />
-        <PostContainer
-          posts={this.state.posts}
-          searchFilter={this.searchFilter}
-          filteredPosts={this.state.filtered}
-        />
+        <div className="content-container">
+          <PostContainer
+            posts={this.state.posts}
+            searchFilter={this.searchFilter}
+            filteredPosts={this.state.filtered}
+          />
+
+          <RecommendedContainer />
+        </div>
       </div>
     );
   }
