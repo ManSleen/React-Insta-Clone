@@ -1,10 +1,21 @@
 import React from "react";
+import styled, { css } from "styled-components";
+
+const LikeCommentButtons = styled.div`
+  font-weight: bold;
+  width: 100%;
+  font-size: 1.1rem;
+  i {
+    margin-bottom: 10px;
+    padding-right: 15px;
+  }
+`;
 
 const LikeSection = props => {
   console.log(props.isLiked);
   return (
     <div>
-      <div className="like-comment-buttons">
+      <LikeCommentButtons>
         <i
           onClick={props.addLike}
           className={`far fa-heart fa-lg${
@@ -12,7 +23,7 @@ const LikeSection = props => {
           }`}
         />
         <i className="far fa-comment fa-lg" />
-      </div>
+      </LikeCommentButtons>
       <div className="likes">{props.likes} likes</div>
     </div>
   );

@@ -4,8 +4,22 @@ import SearchBar from "../SearchBar/SearchBar";
 import dummyData from "../../dummy-data";
 import RecommendedContainer from "./RecommendedContainer";
 
+import styled, { css } from "styled-components";
 import "../../App.css";
 import "./PostContainer.css";
+
+const PostContentContainer = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  width: 900px;
+  margin: 0 auto;
+`;
+
+const AppWrapper = styled.div`
+  text-align: center;
+  width: 100%;
+  background-color: #fafafa;
+`;
 
 class PostsPage extends React.Component {
   constructor() {
@@ -47,14 +61,14 @@ class PostsPage extends React.Component {
     // console.log("this.state.filtered.length:", this.state.filtered.length);
     // console.log("this.state.posts", this.state.posts);
     return (
-      <div className="App">
+      <AppWrapper>
         <SearchBar
           searchHandler={this.searchHandler}
           searchFilter={this.searchFilter}
           newSearch={this.state.search}
           posts={this.state.posts}
         />
-        <div className="content-container">
+        <PostContentContainer>
           <PostContainer
             posts={this.state.posts}
             searchFilter={this.searchFilter}
@@ -62,8 +76,8 @@ class PostsPage extends React.Component {
           />
 
           <RecommendedContainer />
-        </div>
-      </div>
+        </PostContentContainer>
+      </AppWrapper>
     );
   }
 }

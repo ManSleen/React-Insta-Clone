@@ -4,10 +4,11 @@ import "./SearchBar.css";
 
 const SearchBarStyles = styled.div`
   background-color: white;
-  padding: 20px;
-  border-bottom: 1px solid lightgrey;
+  padding: 18px 0;
+  border-bottom: 1px solid rgb(226, 226, 226);
   position: fixed;
   width: 100%;
+  z-index: 9;
 `;
 
 const SearchBarContainer = styled.div`
@@ -35,13 +36,20 @@ const SearchInput = styled.div`
 `;
 
 const SearchLogo = styled.div`
+  font-size: 1.2rem;
   a {
     text-decoration: none;
     color: black;
   }
+  i {
+    vertical-align: middle;
+  }
   img {
-    width: 100px;
+    width: 110px;
     height: auto;
+    margin-left: 12px;
+    vertical-align: middle;
+    padding-top: 4px;
   }
 `;
 
@@ -67,8 +75,9 @@ class SearchBar extends React.Component {
         <SearchBarContainer>
           <SearchLogo>
             <a href="../index.html">
-              <i className="fab fa-instagram fa-2x" />{" "}
+              <i className="fab fa-instagram fa-lg" />
             </a>
+            <div className="line">{""}</div>
             <a href="../index.html">
               <img
                 alt=" "
