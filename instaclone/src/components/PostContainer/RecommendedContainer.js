@@ -1,8 +1,23 @@
 import React from "react";
+import styled, { css } from "styled-components";
+
+function consoleResize() {
+  let windowSize = window.innerWidth;
+}
+
+window.addEventListener("resize", consoleResize);
+
+const RecoContainerWrapper = styled.div`
+  position: fixed;
+  width: 280px;
+  left: 900px;
+  margin-top: 130px;
+  text-align: left;
+`;
 
 const RecommendedContainer = props => {
   return (
-    <div className="reco-container">
+    <RecoContainerWrapper>
       <div className="user-info">
         <img
           src="https://scontent-dfw5-1.cdninstagram.com/vp/31a6d74a4c7272385f7fba9f0c4ced39/5D8B58FD/t51.2885-19/s150x150/59022951_615063302296246_758405088904478720_n.jpg?_nc_ht=scontent-dfw5-1.cdninstagram.com"
@@ -41,7 +56,7 @@ const RecommendedContainer = props => {
           </ul>
         </div>
       </div>
-    </div>
+    </RecoContainerWrapper>
   );
 };
 
