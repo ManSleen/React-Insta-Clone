@@ -1,0 +1,65 @@
+.reco-container {
+  position: sticky;
+  width: 280px;
+  left: 1150px;
+  margin-top: 130px;
+  text-align: left;
+}
+
+.reco-stories {
+  background-color: white;
+  border: 1px solid rgb(226, 226, 226);
+  border-radius: 2px;
+  padding: 15px;
+}
+
+.stories-title {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.stories-title h3 {
+  font-size: 0.9rem;
+  color: grey;
+}
+
+.stories-title h4 {
+  font-size: 0.8rem;
+}
+
+.reco-suggestions {
+  background-color: white;
+  border: 1px solid rgb(226, 226, 226);
+  border-radius: 2px;
+  padding: 15px;
+  margin-top: 12px;
+}
+
+.user-info {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 10px;
+}
+
+.user-info img {
+  border-radius: 50%;
+  height: 55px;
+  border: 1px solid rgb(226, 226, 226);
+}
+
+.username-realname {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-left: 15px;
+}
+
+.username-realname h3 {
+  font-size: 0.9rem;
+}
+
+.username-realname h4 {
+  font-size: 0.8rem;
+  font-weight: normal;
+  color: grey;
+}

@@ -1,0 +1,7 @@
+.line {
+  border-left: 1px solid black;
+  height: 30px;
+  display: inline-block;
+  margin-left: 17px;
+  vertical-align: middle;
+}

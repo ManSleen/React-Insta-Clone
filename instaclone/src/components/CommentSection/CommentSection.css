@@ -1,0 +1,14 @@
+.likes {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.timestamp {
+  font-size: 0.7rem;
+  color: grey;
+  text-transform: uppercase;
+}
+
+.red {
+  color: red;
+}
