@@ -12,7 +12,6 @@ const LikeCommentButtons = styled.div`
 `;
 
 const LikeSection = props => {
-  console.log(props.isLiked);
   return (
     <div>
       <LikeCommentButtons>

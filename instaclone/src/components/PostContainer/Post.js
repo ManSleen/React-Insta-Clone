@@ -54,8 +54,6 @@ class Post extends React.Component {
     isLiked: false
   };
 
-  toggleLike = () => {};
-
   addLike = () => {
     if (this.state.isLiked) {
       let likes = this.state.likes - 1;

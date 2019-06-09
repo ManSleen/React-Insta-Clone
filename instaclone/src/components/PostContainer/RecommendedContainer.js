@@ -1,8 +1,11 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
+let leftOffset = 0;
 function consoleResize() {
-  let windowSize = window.innerWidth;
+  // windowSize = window.innerWidth;
+  // console.log(windowSize);
+  // return windowSize - 600;
 }
 
 window.addEventListener("resize", consoleResize);
@@ -10,7 +13,7 @@ window.addEventListener("resize", consoleResize);
 const RecoContainerWrapper = styled.div`
   position: fixed;
   width: 280px;
-  left: 900px;
+  left: ${leftOffset + "px"}
   margin-top: 130px;
   text-align: left;
 `;
