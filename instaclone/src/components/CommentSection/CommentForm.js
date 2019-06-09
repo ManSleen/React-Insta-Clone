@@ -15,6 +15,7 @@ const CommentFormWrapper = styled.div`
 `;
 
 const CommentForm = props => {
+  console.log(props);
   return (
     <CommentFormWrapper>
       <form onSubmit={props.addComment}>
@@ -22,7 +23,7 @@ const CommentForm = props => {
           name="newComment"
           placeholder="Add a comment..."
           type="text"
-          value={props.newComment}
+          value={props.value}
           onChange={props.commentHandler}
         />
       </form>

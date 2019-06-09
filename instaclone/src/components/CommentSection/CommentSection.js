@@ -7,51 +7,66 @@ import "./CommentSection.css";
 
 class CommentSection extends React.Component {
   state = {
-    comments: [],
-    newComment: ""
+    input: "",
+    commentArray: this.props.comments,
+    timeStamp: this.props.timeStamp,
+    id: this.props.id,
+    username: ""
   };
 
   componentDidMount() {
-    const postArray = JSON.parse(localStorage.getItem("postArray"));
+    const loggedInUser = localStorage.getItem("username");
     this.setState({
-      comments: postArray ? postArray : this.props.post.comments
+      username: loggedInUser ? loggedInUser : "sampleUser"
     });
   }
 
-  // componentDidUpdate() {
-  //   localStorage.setItem("postArray", JSON.stringify(this.props.post.comments));
-  // }
-
-  commentHandler = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
-
   addComment = e => {
     e.preventDefault();
-    let newComment = {
-      text: this.state.newComment,
-      username: localStorage.getItem("username"),
-      id: Date.now()
-    };
+    if (this.state.input) {
+      // console.log(this.state.id);
+      const options = {
+        day: "2-digit",
+        month: "long",
+        year: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+        seconds: "numeric"
+      };
+      const date = new Date().toLocaleString("en-us", options);
+      const newComment = {
+        id: Date.now(),
+        username: this.state.username,
+        text: this.state.input
+      };
+      this.props.addComment(this.state.id, newComment, date);
 
+      this.setState({
+        input: "",
+        timeStamp: date
+      });
+    }
+  };
+
+  handleChanges = e => {
+    e.preventDefault();
     this.setState({
-      comments: [...this.state.comments, newComment],
-      newComment: ""
+      input: e.target.value
     });
   };
 
   render() {
     return (
       <div className="comment-section">
-        {this.state.comments.map(comment => {
+        {this.state.commentArray.map(comment => {
           return <Comment key={comment.id} comment={comment} />;
         })}
-        <div className="timestamp">{this.props.post.timestamp}</div>
+        <div className="timestamp">{this.state.timeStamp}</div>
         <CommentForm
-          newComment={this.state.newComment}
-          commentHandler={this.commentHandler}
+          value={this.state.input}
+          comments={this.props.comments}
+          post={this.props.post}
+          commentHandler={this.handleChanges}
           addComment={this.addComment}
         />
       </div>

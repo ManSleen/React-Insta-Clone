@@ -69,6 +69,7 @@ class Post extends React.Component {
       });
     }
   };
+
   render() {
     return (
       <PostContainer>
@@ -89,7 +90,14 @@ class Post extends React.Component {
             addLike={this.addLike}
             likes={this.state.likes}
           />
-          <CommentSection post={this.props.post} />
+          <CommentSection
+            commentHandler={this.props.commentHandler}
+            addComment={this.props.addComment}
+            comments={this.props.post.comments}
+            post={this.props.post}
+            id={this.props.post.id}
+            timeStamp={this.props.post.timestamp}
+          />
         </LikesSection>
       </PostContainer>
     );

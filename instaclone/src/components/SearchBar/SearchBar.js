@@ -86,7 +86,7 @@ class SearchBar extends React.Component {
             </a>
           </SearchLogo>
           <SearchInput>
-            <i class="fas fa-search fa-xs" />
+            <i className="fas fa-search fa-xs" />
             <input
               onChange={this.props.searchFilter}
               name=""
