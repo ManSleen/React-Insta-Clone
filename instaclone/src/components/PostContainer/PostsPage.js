@@ -4,7 +4,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import dummyData from "../../dummy-data";
 import RecommendedContainer from "./RecommendedContainer";
 
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import "../../App.css";
 import "./PostContainer.css";
 
@@ -32,9 +32,14 @@ class PostsPage extends React.Component {
   }
 
   componentDidMount() {
+    const postArray = JSON.parse(localStorage.getItem("postArray"));
     this.setState({
-      posts: dummyData
+      posts: postArray ? postArray : dummyData
     });
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem("postArray", JSON.stringify(this.state.posts));
   }
 
   searchHandler = e => {
@@ -56,6 +61,44 @@ class PostsPage extends React.Component {
     });
   };
 
+  // commentHandler = e => {
+  //   e.preventDefault();
+  //   this.setState({
+  //     [e.target.name]: e.target.value
+  //   });
+  // };
+
+  addComment = (id, comment, timeStamp) => {
+    const postIndex = this.state.posts.findIndex(post => {
+      return post.id === id;
+    });
+    if (postIndex === -1) {
+      console.log("error, invalid post id");
+      return;
+    }
+    const newPosts = this.state.posts;
+
+    newPosts[postIndex].timestamp = timeStamp;
+    newPosts[postIndex].comments.push(comment);
+
+    this.setState({
+      posts: newPosts
+    });
+  };
+
+  addLike = (id, likes, isLiked) => {
+    const postIndex = this.state.posts.findIndex(post => {
+      return post.id === id;
+    });
+    const newPosts = this.state.posts;
+    console.log(newPosts[postIndex].likes);
+    newPosts[postIndex].likes = likes;
+
+    this.setState({
+      posts: newPosts
+    });
+  };
+
   render() {
     // console.log("this.state.filtered:", this.state.filtered);
     // console.log("this.state.filtered.length:", this.state.filtered.length);
@@ -70,6 +113,9 @@ class PostsPage extends React.Component {
         />
         <PostContentContainer>
           <PostContainer
+            addComment={this.addComment}
+            commentHandler={this.commentHandler}
+            addLike={this.addLike}
             posts={this.state.posts}
             searchFilter={this.searchFilter}
             filteredPosts={this.state.filtered}

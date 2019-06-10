@@ -1,16 +1,19 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
+let windowSize;
+let newWidth;
 function consoleResize() {
-  let windowSize = window.innerWidth;
+  windowSize = window.innerWidth;
+  newWidth = windowSize + 1200;
+  return newWidth;
 }
 
 window.addEventListener("resize", consoleResize);
 
 const RecoContainerWrapper = styled.div`
-  position: fixed;
   width: 280px;
-  left: 900px;
+  margin: 130px 0 0 20px;
   margin-top: 130px;
   text-align: left;
 `;

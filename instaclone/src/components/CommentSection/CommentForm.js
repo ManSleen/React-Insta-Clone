@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 const CommentFormWrapper = styled.div`
   margin-top: 10px;
@@ -22,7 +22,7 @@ const CommentForm = props => {
           name="newComment"
           placeholder="Add a comment..."
           type="text"
-          value={props.newComment}
+          value={props.value}
           onChange={props.commentHandler}
         />
       </form>

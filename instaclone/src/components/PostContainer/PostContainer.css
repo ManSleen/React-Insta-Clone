@@ -1,7 +1,7 @@
 .reco-container {
-  position: sticky;
+  position: fixed;
   width: 280px;
-  left: 1150px;
+  left: 0px;
   margin-top: 130px;
   text-align: left;
 }

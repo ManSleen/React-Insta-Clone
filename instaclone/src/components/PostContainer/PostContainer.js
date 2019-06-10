@@ -8,10 +8,26 @@ const PostContainer = props => {
     <div>
       {props.filteredPosts.length === 0
         ? props.posts.map(el => {
-            return <Post key={el.id} post={el} />;
+            return (
+              <Post
+                addLike={props.addLike}
+                commentHandler={props.commentHandler}
+                addComment={props.addComment}
+                key={el.id}
+                post={el}
+              />
+            );
           })
         : props.filteredPosts.map(el => {
-            return <Post key={el.id} post={el} />;
+            return (
+              <Post
+                addLike={props.addLike}
+                commentHandler={props.commentHandler}
+                addComment={props.addComment}
+                key={el.id}
+                post={el}
+              />
+            );
           })}
     </div>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import "./SearchBar.css";
 
 const SearchBarStyles = styled.div`
@@ -13,7 +13,8 @@ const SearchBarStyles = styled.div`
 
 const SearchBarContainer = styled.div`
   margin: 0 auto;
-  width: 50vw;
+  padding: 0 40px;
+  width: 1000px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -55,11 +56,20 @@ const SearchLogo = styled.div`
 
 const SearchProfileButtons = styled.div`
   font-size: 1.2rem;
+  text-alight: right;
   i {
     -webkit-text-stroke: 0.7px white;
-    margin: 0 12px;
+    margin-left: 24px;
     cursor: pointer;
   }
+`;
+
+const LineDiv = styled.div`
+  border-left: 1px solid black;
+  height: 30px;
+  display: inline-block;
+  margin-left: 17px;
+  vertical-align: middle;
 `;
 
 class SearchBar extends React.Component {
@@ -77,7 +87,7 @@ class SearchBar extends React.Component {
             <a href="../index.html">
               <i className="fab fa-instagram fa-lg" />
             </a>
-            <div className="line">{""}</div>
+            <LineDiv>{""}</LineDiv>
             <a href="../index.html">
               <img
                 alt=" "
@@ -86,7 +96,7 @@ class SearchBar extends React.Component {
             </a>
           </SearchLogo>
           <SearchInput>
-            <i class="fas fa-search fa-xs" />
+            <i className="fas fa-search fa-xs" />
             <input
               onChange={this.props.searchFilter}
               name=""
