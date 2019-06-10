@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 const CommentFormWrapper = styled.div`
   margin-top: 10px;
@@ -15,7 +15,6 @@ const CommentFormWrapper = styled.div`
 `;
 
 const CommentForm = props => {
-  console.log(props);
   return (
     <CommentFormWrapper>
       <form onSubmit={props.addComment}>

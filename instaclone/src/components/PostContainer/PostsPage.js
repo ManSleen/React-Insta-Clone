@@ -4,7 +4,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import dummyData from "../../dummy-data";
 import RecommendedContainer from "./RecommendedContainer";
 
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import "../../App.css";
 import "./PostContainer.css";
 
@@ -61,12 +61,12 @@ class PostsPage extends React.Component {
     });
   };
 
-  commentHandler = e => {
-    e.preventDefault();
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
+  // commentHandler = e => {
+  //   e.preventDefault();
+  //   this.setState({
+  //     [e.target.name]: e.target.value
+  //   });
+  // };
 
   addComment = (id, comment, timeStamp) => {
     const postIndex = this.state.posts.findIndex(post => {
@@ -77,10 +77,22 @@ class PostsPage extends React.Component {
       return;
     }
     const newPosts = this.state.posts;
-    console.log(newPosts);
-    console.log(postIndex);
+
     newPosts[postIndex].timestamp = timeStamp;
     newPosts[postIndex].comments.push(comment);
+
+    this.setState({
+      posts: newPosts
+    });
+  };
+
+  addLike = (id, likes, isLiked) => {
+    const postIndex = this.state.posts.findIndex(post => {
+      return post.id === id;
+    });
+    const newPosts = this.state.posts;
+    console.log(newPosts[postIndex].likes);
+    newPosts[postIndex].likes = likes;
 
     this.setState({
       posts: newPosts
@@ -103,6 +115,7 @@ class PostsPage extends React.Component {
           <PostContainer
             addComment={this.addComment}
             commentHandler={this.commentHandler}
+            addLike={this.addLike}
             posts={this.state.posts}
             searchFilter={this.searchFilter}
             filteredPosts={this.state.filtered}

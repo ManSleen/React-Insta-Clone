@@ -10,6 +10,7 @@ const PostContainer = props => {
         ? props.posts.map(el => {
             return (
               <Post
+                addLike={props.addLike}
                 commentHandler={props.commentHandler}
                 addComment={props.addComment}
                 key={el.id}
@@ -20,6 +21,7 @@ const PostContainer = props => {
         : props.filteredPosts.map(el => {
             return (
               <Post
+                addLike={props.addLike}
                 commentHandler={props.commentHandler}
                 addComment={props.addComment}
                 key={el.id}

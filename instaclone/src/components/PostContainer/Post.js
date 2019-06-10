@@ -1,7 +1,7 @@
 import React from "react";
 import LikeSection from "../CommentSection/LikeSection";
 import CommentSection from "../CommentSection/CommentSection";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 const PostContainer = styled.div`
   background-color: white;
@@ -49,28 +49,8 @@ const LikesSection = styled.div`
 `;
 
 class Post extends React.Component {
-  state = {
-    likes: this.props.post.likes,
-    isLiked: false
-  };
-
-  addLike = () => {
-    if (this.state.isLiked) {
-      let likes = this.state.likes - 1;
-      this.setState({
-        likes,
-        isLiked: !this.state.isLiked
-      });
-    } else {
-      let likes = this.state.likes + 1;
-      this.setState({
-        likes,
-        isLiked: !this.state.isLiked
-      });
-    }
-  };
-
   render() {
+    console.log(this.props);
     return (
       <PostContainer>
         <PostUsernameContainer>
@@ -86,9 +66,9 @@ class Post extends React.Component {
         </PostImage>
         <LikesSection>
           <LikeSection
-            isLiked={this.state.isLiked}
-            addLike={this.addLike}
-            likes={this.state.likes}
+            id={this.props.post.id}
+            likes={this.props.post.likes}
+            addLike={this.props.addLike}
           />
           <CommentSection
             commentHandler={this.props.commentHandler}
